@@ -1,17 +1,16 @@
 # Sääasema oliosovellus
 
 class Saaasema:
-    def __init__(self, nimi, tyyppi, sijainti, numero):
+    def __init__(self, nimi, tyyppi, sijainti):
         self.nimi = nimi
         self.tyyppi = tyyppi
         self.sijainti = sijainti
-        self.numero = numero
+        # self.numero = numero
 
 class Saahavainto(Saaasema):
-    def __init__(self, numero, paivamaara: str, lampotila, tnopeus, tsuunta, pilvisyys, nakyvyys):
-        super().__init__(numero)
+    def __init__(self, paivamaara: str, lampotila, tnopeus, tsuunta, pilvisyys, nakyvyys):
         self.paivamaara = paivamaara
-        self.lampotila = str(lampotila) +'\'c'
+        self.lampotila = str(lampotila) +'c'
         self.tnopeus = tnopeus
         self.tsuunta = tsuunta
         self.pilvisyys = pilvisyys
@@ -33,7 +32,8 @@ if __name__ == "__main__":
 
     havainto = Saahavainto('24.03.2021', 5, 20, 300, 4/8, 3)
 
-    print('Säähavainto tehtiin', havainto.paivamaara + ', lämpötila oli', havainto.lampotila, "\nTuulennopeus oli:", str(havainto.tnopeus) + 'm/s ja suunta', havainto.wind_direction, 'astetta')
+    print('Säähavainto tehtiin', havainto.paivamaara + ', lämpötila oli', havainto.lampotila, "\nTuulennopeus oli:", str(havainto.tnopeus) + 'm/s ja suunta')
+    # , havainto.wind_direction, 'astetta'
     print(str(havainto.tnopeus) + 'm/s kilometreinä tunnissa on', havainto.tnopeuskm())
 
     print('Tuulennopeus solmuissa oli', havainto.tnopeussolmu())
